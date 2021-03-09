@@ -23,9 +23,6 @@ public class BaseTest {
         DOMConfigurator.configure("log4j.xml");
     }
 
-
-
-
     @BeforeMethod
     public void setUp() {
         WebDriverManager.chromedriver().setup();

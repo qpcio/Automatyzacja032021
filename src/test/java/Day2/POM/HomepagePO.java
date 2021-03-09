@@ -1,11 +1,13 @@
 package Day2.POM;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomepagePO extends BasePO {
+    Logger logger = Logger.getLogger(HomepagePO.class);
 
     @FindBy(css = ".logo")
     private WebElement logo;
@@ -19,8 +21,12 @@ public class HomepagePO extends BasePO {
     private String myURL = "http://automationpractice.com/index.php";
 
     public HomepagePO openWomenTopMenu(){
+        logger.trace("Will try to move to "+womenTopMenu.getText());
         actions.moveToElement(womenTopMenu).build().perform();
+        logger.trace("Moved to element "+womenTopMenu.getText());
+        logger.trace("Will wait for visibility of "+menuWomenDisplayed.getText());
         wait.until(ExpectedConditions.visibilityOf(menuWomenDisplayed));
+        logger.info("Opened Women Top Menu");
         return this;
     }
 

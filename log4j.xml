@@ -13,11 +13,12 @@
         </layout>
         <param name="file" value="log4j_log.out"/>
         <param name="immediateFlush" value="true"/>
-        <param name="append" value="true"/>
+        <param name="append" value="false"/>
     </appender>
     <root>
-        <priority value="debug"/>
+        <priority value="trace"/>
         <appender-ref ref="Appender1" />
+        <appender-ref ref="FILE"/>
     </root>
 </log4j:configuration>
 
