@@ -11,14 +11,28 @@ public class POTests extends BaseTest{
         //given
         HomepagePO homepagePO = new HomepagePO(driver);
         //when
-        homepagePO.openMe();
+        boolean wynik = homepagePO
+                .openMe()
+                .isDisplyed();
         //then
-        Assert.assertTrue(homepagePO.isDisplyed());
+        Assert.assertTrue(wynik);
     }
 
     //Zadanie:
     // Najechac na Women
     // sprawdzic, ze wyswietla sie podmenu
+
+    @Test
+    public void womenMenuTest(){
+        HomepagePO homepagePO = new HomepagePO(driver);
+
+        boolean wynik = homepagePO
+                .openMe()
+                .openWomenTopMenu()
+                .isWomenMenuDisplayed();
+
+        Assert.assertTrue(wynik);
+    }
 
 
 }
