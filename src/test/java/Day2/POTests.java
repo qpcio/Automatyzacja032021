@@ -26,13 +26,31 @@ public class POTests extends BaseTest{
     public void womenMenuTest(){
         HomepagePO homepagePO = new HomepagePO(driver);
 
-        boolean wynik = homepagePO
+        homepagePO
                 .openMe()
-                .openWomenTopMenu()
-                .isWomenMenuDisplayed();
+                .openWomenTopMenu();
+
+        boolean wynik = homepagePO.isDisplyed();
+
 
         Assert.assertTrue(wynik);
     }
+
+    @Test
+    public void priceOfFirstProductTest(){
+        //given
+        HomepagePO homepagePO = new HomepagePO(driver);
+        double expectedPrice = 16.51;
+
+        //when
+        double result = homepagePO
+                .openMe()
+                .getNthPrice(1);
+
+        //then
+        Assert.assertEquals(result,expectedPrice);
+    }
+
 
 
 }
