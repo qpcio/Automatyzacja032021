@@ -25,6 +25,9 @@ public class HomepagePO extends BasePO {
     @FindBy(css = "#homefeatured .product-container")
     private List<WebElement> allFeaturedProducts;
 
+    @FindBy(id = "contact-link")
+    private WebElement contactUs;
+
 //    private By logo2 = By.cssSelector(".logo");
 //
 //    private By nthProduct(int n){
@@ -32,6 +35,11 @@ public class HomepagePO extends BasePO {
 //    }
 
 
+    public ContactUsPO openContact(){
+        contactUs.click();
+        logger.trace("Clicked Contact Us link by "+contactUs);
+        return new ContactUsPO(driver);
+    }
 
     private List<ProductMiniaturePO> getProductMiniatures(){
         List<ProductMiniaturePO> list = new ArrayList<>();

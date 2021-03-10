@@ -11,8 +11,14 @@ public class POTests extends BaseTest{
         //given
         HomepagePO homepagePO = new HomepagePO(driver);
         //when
+        long czas = System.currentTimeMillis();
+        homepagePO.openMe();
+        //tutaj dodac czekanie
+        long ladowanie = System.currentTimeMillis() -czas;
+        logger.fatal("CZas ladowania = "+ladowanie);
+
+
         boolean wynik = homepagePO
-                .openMe()
                 .isDisplyed();
         //then
         Assert.assertTrue(wynik);
